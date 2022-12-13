@@ -3,7 +3,7 @@
         <li><?php if (isset($_SESSION['login'])){echo "<p>Bienvenue ".$_SESSION['login']." ! Vous êtes connecté ! </p>";}?></li>
 
             <ul>
-                <li><a href=index.php>Home</a></li>
+                <li><a href=index.php>Accueil</a></li>
                 <li><a href=planning.php>Planning</a></li>
                 <?php if (isset($_SESSION['login'])&& !empty($_SESSION['login'])){?>
                 <li><a href=reservation-form.php>Faire une réservation</a></li>
