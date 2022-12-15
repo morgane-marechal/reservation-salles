@@ -139,6 +139,48 @@ button:hover{
     background-color: rgb(25, 23, 44);
   
 }
+
+/* -------- calendrier---------*/
+
+
+table, tr, td{
+    background-color: rgba(33, 55, 255, 0.2);
+    text-align: center;
+}
+
+thead{
+    background-color: grey;
+    color:aliceblue;
+}
+
+table{
+    margin:2%;
+}
+
+tr{
+    border:solid;
+    padding:10px;
+}
+td{
+    height:50px;
+    width: 10%;
+}
+
+.horaire{
+    background-color: rgb(101, 92, 231);
+    color:white;
+}
+
+.weekend{
+    background-color: rgb(125, 117, 117);
+    color:rgb(32, 17, 17);
+
+}
+
+#calendar{
+    padding-top: 5%;
+}
+
 /* -------- formulaire de connexion, inscription, changement d'info, livre d'or---------*/
 
 #connexion_form, #compte_form{
