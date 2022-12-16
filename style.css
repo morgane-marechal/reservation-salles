@@ -58,10 +58,6 @@ a:hover{
 }
 
 /* ------- CSS du body ------*/
-
-
-
-
 body{
     background-image: url("fond_montagne");
     background-repeat: repeat;
@@ -160,10 +156,12 @@ table{
 tr{
     border:solid;
     padding:10px;
+    
 }
 td{
     height:50px;
     width: 10%;
+    padding-top:1%;
 }
 
 .horaire{
@@ -179,6 +177,13 @@ td{
 
 #calendar{
     padding-top: 5%;
+}
+
+#even {
+    background-color: rgb(26, 37, 79);
+    color:white;
+    height:100%;
+    margin-top:2%;
 }
 
 /* -------- formulaire de connexion, inscription, changement d'info, livre d'or---------*/
