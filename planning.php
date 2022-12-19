@@ -9,7 +9,6 @@ session_start();
     <link rel="stylesheet" type="text/css" href="style.css" />
         <meta http-equiv="x-ua-compatible" content="IE=edge" />
         <title>Planning</title>
-
 </head>
 
 <body>
@@ -17,84 +16,16 @@ session_start();
 
   <div id="calendar">
 
+    <h1>Planning de la semaine</h1>
+
   <?php 
       
 
       $request=$mysqli->query(" SELECT * from utilisateurs inner join reservations on utilisateurs.id = reservations.id_utilisateur where week(debut) = week(curdate())");
       $result=$request->fetch_all();
-      var_dump($result);
+      //var_dump($result);
+      echo count($result);
 
-/*-----------------récupérer les date de début --------*/
-      $a=0;
-      while($a <= count($result)){
-        for($b=0;$b<=7; $b++){
-          if ($b==6){
-            echo $result[$a][$b]."<br>";
-            //echo convertDate($result[$a][$b])."<br>";
-            if (convertDate($result[$a][$b])=="Vendredi 12h00"){
-              echo $result[$a][4];
-          }
-          }
-          }
-        $a++;
-        }
-      
-
-      echo "<br>";
-
-      /*-----------------création de tableaux comportant login, titre ou date de début --------*/
-      
-      /*foreach($result as $array){
-        echo "<br>";
-        $val_date_deb[]=$array[2];
-        $login_array[]=$array[0];
-        $title_array[]=$array[1];
-        }*/
-
-        //print_r($val_date_deb);
-        //echo "<br>";
-        //print_r($login_array);
-        //echo "<br>";
-        //print_r($title_array);
-        /*foreach($array as $i){
-          if ($i == $val_date_deb){
-            echo $array[0]." ".$array[1]."<br>";
-          }
-        }
-       
-      $i=0;
-      while($i <= count($login_array))
-      {
-        echo $login_array[$i]."\n";
-        $i++;
-      }
-      echo "<br>";
-      $j=0;
-      while($j <= count($title_array))
-      {
-        echo $title_array[$j]."<br>";
-        $j++;
-      }
-      echo "<br>";
-
-      $k=0;
-      while($k <= count($val_date_deb))
-      {
-        echo $val_date_deb[$k]."<br>";
-        $ddate[]= convertDate($val_date_deb[$k])."<br>";
-        $k++;
-      }
-      */
-
-
-    
-
-   
-
-     
-
-      
-  
   /*-----------function pour convertir date au format datetime en SQL en jour de la semaine--------*/
     function convertDate($tempDate){
         $day_of_weeks = date('N', strtotime( $tempDate));
@@ -118,9 +49,6 @@ session_start();
         $tempdate = $day_of_weeks;
         return $tempdate;
     }
-
-
-
   $days = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi"];
   ?>
   <table>
@@ -149,12 +77,13 @@ session_start();
                     while($a <= count($result)){
                       for($b=0;$b<=7; $b++){
                         if ($b==6){
-                          //echo $result[$a][$b]."<br>";
-                          //echo convertDate($result[$a][$b])."<br>";
                           if (convertDate($result[$a][$b])==$datetime){
                             echo '<div id="even">';
                             echo $result[$a][1]."<br>";
-                            echo $result[$a][4];
+                            echo $result[$a][4]."<br>";
+                            $n_id=$result[$a][3];
+                            echo "<a href='reservation.php?id=$n_id' title='GET'>Détails</a>";
+                           
                             echo '</div>';
                             break;
                           }
@@ -162,11 +91,8 @@ session_start();
                       }
                       $a++;
                       }
-
-                 
                     echo "<br>";
                     echo "</td>";
-
                 }
                 echo "</tr>";
             }

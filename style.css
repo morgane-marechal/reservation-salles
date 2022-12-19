@@ -35,7 +35,7 @@ li{
 
 a{
     text-decoration: none;
-    color:white;
+    color:rgb(150, 225, 248);
     font-size: 1.1em;
 
 }
@@ -59,18 +59,33 @@ a:hover{
 
 /* ------- CSS du body ------*/
 body{
-    background-image: url("fond_montagne");
-    background-repeat: repeat;
+margin:0; 
+background-color: rgb(167, 148, 213,0.5);
+}
+
+#room{
+    height:100%;
+    background-image: url("working.jpeg");
+    background-repeat: no-repeat;
     background-size: cover;
+    background-color: rgba(33, 55, 255, 0.2);
+
 }
 
 #welcome h1{
     font-size:1.5em;
-    color:white;
+    color:rgb(0, 0, 0);
     text-align:center;
     text-transform: uppercase;
-    padding-top:5%;
+    padding:5%;
     letter-spacing:0.1em;
+
+}
+
+#welcome{
+    background-color: rgb(255,255,255,0.8);
+    width:50%;
+
 }
 
 #logout p{
@@ -114,12 +129,19 @@ input{
     border-radius: 5px;
     background-color: rgb(25, 23, 44,0.7);
     color:white;
-    height:30px;
+    height:40px;
+    font-size: 1.1rem;
 }
 
 input:hover{
     background-color: rgb(25, 23, 44);
-  
+}
+
+select{
+    width:10%;
+    height:40px;
+    border-radius:10px;
+    font-size: 1.1em;
 }
 
 button{
@@ -135,6 +157,12 @@ button:hover{
     background-color: rgb(25, 23, 44);
   
 }
+
+h1, h2{
+    text-align:center;
+    color:rgb(25, 23, 44);
+}
+
 
 /* -------- calendrier---------*/
 
@@ -188,12 +216,14 @@ td{
 
 /* -------- formulaire de connexion, inscription, changement d'info, livre d'or---------*/
 
-#connexion_form, #compte_form{
+#connexion_form, #compte_form, #reservation_form{
     padding-top:5%;
     display:flex;
     flex-direction:column;
     align-items: center;
 }
+
+
 
 form{
     background-color: azure;
@@ -201,7 +231,8 @@ form{
     flex-direction:column;
     width: 50%;
     padding:2%;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgb(145, 157, 245,0.8);
+
     border-radius:10px ;
     margin-bottom:30px;
 }
@@ -223,6 +254,17 @@ form input{
 
 #logout p{
     color: rgb(38, 20, 63);
+}
+
+/* -------- page évènement---------*/
+#evenement{
+    background-color: rgb(88, 104, 224);
+    padding:5%;
+    width:50%;
+    margin:0%25%0%25%;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
 }
 
 /* -------- footer---------*/
@@ -263,7 +305,6 @@ footer ul{
         display:flex;
         width: 100%;
         background-color: rgb(38, 20, 63);
-
         position:fixed ;
         z-index:10;
         height:250px;
@@ -290,10 +331,16 @@ footer ul{
     p{
         font-size: 2em;
     }
+
+    header p{
+        font-size:1.4em;
+        width:30%;
+    }
     
     ul{
         display: flex;
         flex-direction: column;
+        width:100%;
     }
     
     li{
@@ -311,7 +358,7 @@ footer ul{
     a{
         text-decoration: none;
         color:white;
-        font-size: 1.8em;
+        font-size: 1.6em;
         height:50px;
     }
 
@@ -358,6 +405,15 @@ footer ul{
     
     main p{
         font-size: 2em;
+    }
+
+    #calendar{
+        padding-top: 30%;
+    }
+
+    #evenement{
+        padding-top:40%;
+        width:100%;
     }
 
 

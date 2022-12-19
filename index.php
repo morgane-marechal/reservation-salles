@@ -20,10 +20,11 @@ session_start();
         ?>
     </div>
     <main>
-        <div id="welcome">
-            <h1>Bienvenue sur notre site de réservation de salles</h1>
+        <div id="room">
+            <div id="welcome">
+                <h1>Bienvenue sur notre site de réservation de salles</h1>
+            </div>
         </div>
-
     </main>
 
     <?php include('footer.php'); ?>

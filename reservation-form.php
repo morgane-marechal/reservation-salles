@@ -12,6 +12,8 @@ session_start();
 <body>
     <?php include('header.php'); ?> 
 
+    <main>
+
     <section id="reservation_form">
         <form action="" method="post">
             <h3>Réservation</h3>
@@ -53,6 +55,7 @@ session_start();
             <input class="submit" type="submit" value="Envoyer">
         </form>
 
+
         <?php
 
 /*-------récupération du formulaire sous forme de variable */
@@ -76,9 +79,18 @@ session_start();
         $result=$request->fetch_all();
         //echo var_dump($result);
         $id_utilisateur=$result[0][0];
+        //echo $result[0][0];
         $int_utilisateur=(int)$id_utilisateur;
 
-        /* -------------prépare requête sql-----------*/
+        /* -------------prépare requête sql pour vérifier si le créneau horaire est pris-----------*/
+        $request2=$mysqli->query("SELECT count(*) from reservations where debut = '$hdebut_sql'");
+        $checkreservation=$request2->fetch_all();
+        //echo "count : ".$checkreservation[0][0];
+
+        
+        
+
+        /* -------------prépare requête sql pour insert-----------*/
         $newreservation = "INSERT INTO reservations ( titre, description, debut, fin, id_utilisateur)
         VALUES( '$titre','$description', '$hdebut_sql', '$hfin_sql', '$int_utilisateur' )";
 
@@ -86,9 +98,11 @@ session_start();
             echo "Vous ne pouvez pas avoir l'heure de fin inférieure à l'heure de début";
         }elseif($int_hdebut==$int_hfin){
             echo "La réservation de la salle dure une heure minimum";
+        }elseif($checkreservation[0][0]!= 0){
+            echo "Ce créneau est déjà pris";
         }else{
             if ($mysqli->query($newreservation) === TRUE) {
-                echo "Vous avez ajouté une réservation avec succés";
+                echo "Vous avez ajouté une réservation avec succés.<br>";
                 } else {
                 echo "Erreur: " . $newreservation . "
                 " . $mysqli->error;
@@ -100,6 +114,9 @@ session_start();
         
         ?>
     </section>
+
+
+
     
 </main>
 
