@@ -1,3 +1,3 @@
 <?php
-$mysqli = new mysqli('localhost','root','','reservationsalles');
+$mysqli = new mysqli('','','','');
 ?>
